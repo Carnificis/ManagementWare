@@ -1,0 +1,29 @@
+{
+  "name": "managementware",
+  "version": "1.0.0",
+  "description": "Nodejs Mysql CLI app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carnificis/ManagementWare.git"
+  },
+  "keywords": [
+    "Node",
+    "Mysql",
+    "Inquirer"
+  ],
+  "author": "Jack Kelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carnificis/ManagementWare/issues"
+  },
+  "homepage": "https://github.com/Carnificis/ManagementWare#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.1.2"
+  }
+}
