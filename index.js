@@ -129,10 +129,78 @@ function addEmp() {
     db.query(sql, [first_name, last_name, role_id, manager_id], (error, results, fields) => {
       if (error) 
         console.error(error);
-        return;})})};
-      
-      
+        return;})
+        console.log('Employee added successfully!');
+        connection.end();
 
+
+    })};
+
+    function addDept() {
+      inquirer.prompt({
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the department?'
+      }).then(({ name }) => {
+        // Create a database connection
+        const connection = mysql.createConnection({
+          host: 'localhost',
+          user: 'username',
+          password: 'password',
+          database: 'employee_db'
+        });
+        
+        // Build the SQL insert statement
+        const sql = 'INSERT INTO department SET ?';
+        
+        // Execute the insert statement with the provided parameters
+        connection.query(sql, { name }, (error, results, fields) => {
+          if (error) {
+            // Display an error message to the user if the insert statement fails
+            console.error(error);
+            console.log('Failed to add department');
+          } else {
+            // Display a success message to the user if the insert statement succeeds
+            console.log(`Added department ${name}`);
+          }
+          
+          // Close the database connection
+          connection.end();
+        });
+      });
+    }    
+      
+    function selectAllEmp() {
+        db.query("SELECT * FROM employee", function (err, results) {
+          if (err) throw err;
+          console.table(results);
+          initialQ();
+        });
+      }    
+
+function selectAllRoles() {
+  db.query("SELECT * FROM role", function (err, results) {
+    if (err) throw err;
+    console.table(results);
+    initialQ();
+  });
+
+  
+}
+function addRole() {
+  db.query("SELECT * FROM role", function (err, results) {
+    if (err) throw err;
+    console.table(results);
+    initialQ();
+  });
+}
+function selectAllDept() {
+  db.query("SELECT * FROM department", function (err, results) {
+    if (err) throw err;
+    console.table(results);
+    initialQ();
+  });
+}      
 
 // const inquirer = require("inquirer");
 // const mysql = require("mysql2");
