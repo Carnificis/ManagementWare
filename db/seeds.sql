@@ -1,4 +1,4 @@
-USE Employee_tracker_db;
+USE employee_tracker_db;
 
 insert into department(name)values
 ('IT'),
@@ -6,13 +6,12 @@ insert into department(name)values
 ('Sales');
 
 insert into role(title,salary,department_id)values
-('Manager of Sales',2421,3),
-('Manager of Marketing',2421,2),
-('Manager of IT',2421,1);
+('Manager of Sales',60000,3),
+('Manager of Marketing',60000,2),
+('Manager of IT', 60000,1);
 
-
-insert into employee(first_name,last_name,role_id)values
-('Joe','Bloggs',1),
-('Matt', 'Smith',2),
-('John', 'Jones',3);
+('Joe','Bloggs',1,1);
+insert into employee(first_name,last_name,role_id,manager_id)values
+('Matt', 'Smith',2,null),
+('John', 'Jones',3,null);
 
